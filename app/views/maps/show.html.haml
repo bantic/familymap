@@ -1,0 +1,15 @@
+%h2 new item
+%h3 upload
+= form_for [@map, Upload.new], :html => {:multipart => true}, :remote => true do |f|
+  = f.file_field :image
+  = submit_tag "Submit"
+
+= form_for [@map, Item.new] do |f|
+  = f.label :upload_id
+  = f.text_field :upload_id
+  %br
+  %img#item_image{:style => "display: none", :src => ""}
+
+%h2 items
+- @map.items.each do |item|
+  = render :partial => "items/show", :locals => {:item => item}

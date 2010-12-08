@@ -1,10 +1,10 @@
-class ItemsController < ApplicationController
+class UploadsController < ApplicationController
   before_filter :require_map
 
   def create
-    @item = Item.new(params[:item])
+    @upload = Upload.new(params[:upload].merge(:map => @map))
     respond_to do |format|
-      if @item.save
+      if @upload.save
         format.js
       else
         # help

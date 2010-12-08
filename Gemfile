@@ -9,6 +9,7 @@ gem 'pg'
 gem "paperclip"
 gem "haml"
 gem "aws-s3", :require => "aws/s3"
+gem "remotipart"
 
 group :development do
   gem "heroku"
