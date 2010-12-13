@@ -2,5 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 function handleUpload(upload) {
   $("#item_upload_id").val(upload.id);
+  $("#item_latitude").val(upload.latitude);
+  $("#item_longitude").val(upload.longitude);
   $("#item_image").attr("src", upload.image_thumbnail_url).fadeIn(1000);
 }

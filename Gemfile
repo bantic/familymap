@@ -10,6 +10,7 @@ gem "paperclip"
 gem "haml"
 gem "aws-s3", :require => "aws/s3"
 gem "remotipart"
+gem "exifr"
 
 group :development do
   gem "heroku"

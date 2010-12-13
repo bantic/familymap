@@ -8,6 +8,9 @@ class CreateUploads < ActiveRecord::Migration
       t.integer :image_file_size
       t.datetime :image_updated_at
       
+      t.decimal :latitude, :precision => 9, :scale => 6
+      t.decimal :longitude, :precision => 9, :scale => 6
+      
       t.timestamps
     end
   end

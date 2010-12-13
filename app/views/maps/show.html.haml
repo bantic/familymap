@@ -7,6 +7,8 @@
 = form_for [@map, Item.new] do |f|
   = f.label :upload_id
   = f.text_field :upload_id
+  = f.text_field :latitude
+  = f.text_field :longitude
   %br
   %img#item_image{:style => "display: none", :src => ""}
 

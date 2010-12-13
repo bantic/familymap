@@ -37,6 +37,7 @@ GEM
     configuration (1.2.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    exifr (1.0.3)
     haml (3.0.24)
     heroku (1.14.8)
       json_pure (>= 1.2.0, < 1.5.0)
@@ -91,6 +92,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  exifr
   haml
   heroku
   paperclip

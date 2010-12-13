@@ -6,6 +6,9 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.text :description
       
+      t.decimal :latitude, :precision => 9, :scale => 6
+      t.decimal :longitude, :precision => 9, :scale => 6
+      
       t.timestamps
     end
   end
