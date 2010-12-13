@@ -6,3 +6,14 @@ function handleUpload(upload) {
   $("#item_longitude").val(upload.longitude);
   $("#item_image").attr("src", upload.image_thumbnail_url).fadeIn(1000);
 }
+
+function codeAddress() {
+  var address = $("#address").val();
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({'address': address}, function(results, status) {
+    var latlng = results[0].geometry.location;
+    $("#item_latitude").val(latlng.lat());
+    $("#item_longitude").val(latlng.lng());
+  });
+  return false;
+}

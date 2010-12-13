@@ -10,6 +10,10 @@
   = f.text_field :latitude
   = f.text_field :longitude
   %br
+  ADDRESS:
+  = text_field_tag "address"
+  %a{:href => '#', :onclick => 'codeAddress();'} Geocode
+  %br
   %img#item_image{:style => "display: none", :src => ""}
 
 %h2 items
