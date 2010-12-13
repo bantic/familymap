@@ -1,7 +1,4 @@
 class MapsController < ApplicationController
-  def index
-    redirect_to :action => "new"
-  end
   def new
     @map = Map.new
   end

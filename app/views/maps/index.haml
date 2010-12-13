@@ -1,0 +1,7 @@
+%ul
+  - Map.all.each do |map|
+    %li= link_to map.title, map_url(map)
+- if Map.count == 0
+  No maps yet.
+  %br
+= link_to "Create new map", new_map_url
