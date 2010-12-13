@@ -7,7 +7,11 @@ class Upload < ActiveRecord::Base
   has_attached_file :image, 
                     :styles         => { :medium => "300x300>", :thumb => "100x100>", :large => "500x500>" },
                     :storage        => :s3,
-                    :s3_credentials => Rails.root.join("config","s3.yml"),
+                    :s3_credentials => {
+                      :access_key_id     => S3[:key],
+                      :secret_access_key => S3[:secret]
+                    },
+                    :bucket => S3[:bucket],
                     :path           => "/:map_id/:id/:style.:extension"
   
   
