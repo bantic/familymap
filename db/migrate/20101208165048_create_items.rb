@@ -9,6 +9,8 @@ class CreateItems < ActiveRecord::Migration
       t.decimal :latitude, :precision => 9, :scale => 6
       t.decimal :longitude, :precision => 9, :scale => 6
       
+      t.string :family_members
+      
       t.timestamps
     end
   end

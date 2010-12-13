@@ -1,0 +1,10 @@
+.family_member {
+  color: blue;
+  
+  &.selected {
+    border: 1px solid black;
+    background: #CCCCCC;
+    color: red;
+  }
+}
+

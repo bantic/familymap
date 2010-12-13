@@ -28,7 +28,7 @@ class Upload < ActiveRecord::Base
           latitude  *= -1 if exif[:gps_latitude_ref] =~ /s/i
           longitude *= -1 if exif[:gps_longitude_ref] =~ /w/i
           
-          return {:latitude => latitude, :longitude => longitude}
+          return {:exif_latitude => latitude, :exif_longitude => longitude}
         end
       end
     end

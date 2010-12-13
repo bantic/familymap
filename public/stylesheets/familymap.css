@@ -1,0 +1,6 @@
+.family_member {
+  color: blue; }
+  .family_member.selected {
+    border: 1px solid black;
+    background: #CCCCCC;
+    color: red; }

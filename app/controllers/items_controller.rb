@@ -3,12 +3,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    respond_to do |format|
-      if @item.save
-        format.js
-      else
-        # help
-      end
+    if @item.save
+      render :partial => "/maps/items", :layout => false
+    else
+      puts "ITEM DOESN'T SAVE!! #{@item.errors.inspect}"
+      # help
     end
   end
 end

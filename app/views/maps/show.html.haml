@@ -2,20 +2,38 @@
 %h3 upload
 = form_for [@map, Upload.new], :html => {:multipart => true}, :remote => true do |f|
   = f.file_field :image
-  = submit_tag "Submit"
+  = submit_tag "Submit", :disable_with => "..uploading..."
 
-= form_for [@map, Item.new] do |f|
-  = f.label :upload_id
-  = f.text_field :upload_id
-  = f.text_field :latitude
-  = f.text_field :longitude
+= form_for [@map, Item.new], :remote => true do |f|
+  = f.hidden_field :upload_id
+  = f.hidden_field :map_id
+  = f.hidden_field :latitude
+  = f.hidden_field :longitude
   %br
+  = f.label :title
+  = f.text_field :title
+  %br
+  = f.label :description
+  = f.text_area :description
+  Family Members:
+  %a{:href => "#", :id => "cory", :class => "family_member"} cory
+  |
+  %a{:href => "#", :id => "jenna", :class => "family_member"} jenna
+  |
+  %a{:href => "#", :id => "al", :class => "family_member"} al
+  |
+  %a{:href => "#", :id => "kay", :class => "family_member"} kay
+  %br
+  = f.text_field :family_members
   ADDRESS:
   = text_field_tag "address"
   %a{:href => '#', :onclick => 'codeAddress();'} Geocode
   %br
   %img#item_image{:style => "display: none", :src => ""}
+  
+  = submit_tag "Save!", :disable_with => "...saving.."
+  
+#map_canvas{:style => "width: 500px; height: 500px"}
 
 %h2 items
-- @map.items.each do |item|
-  = render :partial => "items/show", :locals => {:item => item}
+#items= render :partial => "items"
