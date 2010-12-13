@@ -3,4 +3,5 @@
    alert('success;');
    upload = <%= @upload.to_json(:methods => [:image_thumbnail_url]).html_safe %>;
    handleUpload(upload);
+   $("#new_item").fadeIn();
 <% end %>

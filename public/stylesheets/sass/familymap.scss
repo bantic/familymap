@@ -8,3 +8,25 @@
   }
 }
 
+#new_item_area {
+  width: 50%;
+  float: left;
+}
+
+#new_item_preview {
+  width: 40%;
+  float: left;
+  margin-left: 10px;
+}
+
+#items_area {
+  clear: both;
+}
+
+#new_item {
+  display: none;
+}
+
+#change_address_area {
+  display: none;
+}

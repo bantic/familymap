@@ -14,6 +14,7 @@ gem "exifr"
 
 group :development do
   gem "heroku"
+  gem "wirble"
 end
 
 # Use unicorn as the web server

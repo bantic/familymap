@@ -5,6 +5,7 @@ function handleUpload(upload) {
   handleLatLng(upload.exif_latitude, upload.exif_longitude);
   $("#item_image").attr("src", upload.image_thumbnail_url).fadeIn(1000);
   $("#item_map_id").val(upload.map_id);
+  $("#upload_area").hide();
 }
 
 function codeAddress() {
@@ -26,9 +27,7 @@ function handleLatLng(lat, lng) {
 
 function initMap(lat, lng) {
   if (!lat || !lng) {
-    lat = 39;
-    lng = -99;
-    var zoom = 3;
+    return false;
   } else {
     var zoom = 8;
   }
@@ -45,6 +44,9 @@ function initMap(lat, lng) {
     animation: google.maps.Animation.DROP,
     position: latlng
   });
+  
+  $("#address_area").hide();
+  $("#change_address_area").show();
   
   google.maps.event.addListener(marker, 'position_changed', function() {
     $("#item_latitude").val(this.getPosition().lat());
@@ -70,7 +72,23 @@ $(document).ready(function() {
     $("#item_family_members").val( $("#item_family_members").data("family_members") );
   });
   
-  $("#new_item").bind("ajax:success", function(event, data, status, xhr) {
-    $("#items").html(data);
+  $("#new_item").submit(function() {
+    var error = false;
+    var error_text = "";
+    if ( ($("#item_latitude").val == "") || ($("#item_longitude").val() == "")) {
+      error = true;
+      error_text = error_text + "No address has been entered\n";
+    }
+    
+    if ( ($("#item_description").val() == "") ) {
+      error = true;
+      error_text = error_text + "No address has been entered\n";
+      
+    }
+  });
+  
+  $("#change_address_area").click(function() {
+    $("#change_address_area").hide();
+    $("#address_area").show();
   });
 });

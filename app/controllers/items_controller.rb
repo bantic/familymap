@@ -4,9 +4,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     if @item.save
-      render :partial => "/maps/items", :layout => false
+      redirect_to map_url(@map)
     else
-      puts "ITEM DOESN'T SAVE!! #{@item.errors.inspect}"
       # help
     end
   end
