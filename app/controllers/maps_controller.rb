@@ -1,4 +1,7 @@
 class MapsController < ApplicationController
+  def index
+    redirect_to :action => "new"
+  end
   def new
     @map = Map.new
   end
@@ -10,7 +13,7 @@ class MapsController < ApplicationController
   def create
     @map = Map.new(params[:map])
     if @map.save
-      redirect_to map_url(@map)
+      redirect_to new_map_item_url(@map)
     else
       render "new"
     end

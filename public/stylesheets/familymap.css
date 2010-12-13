@@ -22,3 +22,9 @@
 
 #change_address_area {
   display: none; }
+
+.notice {
+  width: 50%;
+  margin: 0 auto;
+  background: #CCCCCC;
+  padding: 10px; }

@@ -1,45 +1,6 @@
-#new_item_area
-  #upload_area
-    %h3 Image
-    = form_for [@map, Upload.new], :html => {:multipart => true}, :remote => true do |f|
-      = f.file_field :image
-      = submit_tag "Submit", :disable_with => "..uploading..."
-
-  = form_for [@map, Item.new] do |f|
-    = f.hidden_field :upload_id
-    = f.hidden_field :map_id
-    = f.hidden_field :latitude
-    = f.hidden_field :longitude
-    = f.label :title
-    = f.text_field :title
-    %br
-    = f.label :description
-    = f.text_area :description, :size => "40x8"
-    %br
-    Family Members:
-    %a{:href => "#", :id => "cory", :class => "family_member"} cory
-    |
-    %a{:href => "#", :id => "jenna", :class => "family_member"} jenna
-    |
-    %a{:href => "#", :id => "al", :class => "family_member"} al
-    |
-    %a{:href => "#", :id => "kay", :class => "family_member"} kay
-    %br
-    = f.hidden_field :family_members
-    #address_area
-      Type an address:
-      = text_field_tag "address"
-      %a{:href => '#', :onclick => 'codeAddress();'} Geocode
-    #change_address_area
-      Click to enter a new address...
-      
-    = submit_tag "Save!", :disable_with => "...saving.."
-
-#new_item_preview
-  %img#item_image{:style => "display: none", :src => ""}
-  Map:
-  #map_canvas{:style => "width: 300px; height: 300px"}
-
 #items_area
   %h2 items
   #items= render :partial => "items"
+  - if @map.items.empty?
+    No items yet.
+  = link_to "Add a new item.", new_map_item_url(@map)

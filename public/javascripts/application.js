@@ -4,7 +4,6 @@ function handleUpload(upload) {
   $("#item_upload_id").val(upload.id);
   handleLatLng(upload.exif_latitude, upload.exif_longitude);
   $("#item_image").attr("src", upload.image_thumbnail_url).fadeIn(1000);
-  $("#item_map_id").val(upload.map_id);
   $("#upload_area").hide();
 }
 
@@ -82,8 +81,14 @@ $(document).ready(function() {
     
     if ( ($("#item_description").val() == "") ) {
       error = true;
-      error_text = error_text + "No address has been entered\n";
-      
+      error_text = error_text + "No description has been entered\n";
+    }
+    
+    if (error) {
+      alert(error_text);
+      return false;
+    } else {
+      return true;
     }
   });
   
