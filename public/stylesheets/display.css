@@ -1,0 +1,5 @@
+html, body, #container, #main {
+  height: 100%; }
+
+#full_map {
+  min-height: 100%; }

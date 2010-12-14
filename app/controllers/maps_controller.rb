@@ -3,6 +3,11 @@ class MapsController < ApplicationController
     @map = Map.new
   end
   
+  def view
+    @map = Map.find(params[:id])
+    render "view", :layout => "display"
+  end
+  
   def show
     @map = Map.find(params[:id])
   end

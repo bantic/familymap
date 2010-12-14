@@ -1,0 +1,8 @@
+<div id='full_map'></div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready( function() {
+  <% @map.items.each do |item| %>
+    addMarker(<%= item.latitude %>, <%= item.longitude %>);
+  <% end %>  
+});
+</script>

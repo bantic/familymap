@@ -2,6 +2,9 @@ Boilerplate::Application.routes.draw do |map|
   resources :maps do
     resources :items
     resources :uploads
+    member do
+      get :view
+    end
   end
   
   # The priority is based upon order of creation:
