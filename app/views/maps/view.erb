@@ -2,7 +2,6 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready( function() {
   <% @map.items.each do |item| %>
-    item = <%= item.to_json.html_safe %>;
     addItem(<%= item.to_json.html_safe %>);
   <% end %>  
 });
