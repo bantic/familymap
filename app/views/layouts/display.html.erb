@@ -25,6 +25,7 @@
   <%- # CSS : implied media="all" -%>
   <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag 'display' %>
+  <%= stylesheet_link_tag 'shadowbox' %>
 
   <%- # Uncomment if you are specifically targeting less enabled mobile browsers -%>
   <%#= stylesheet_link_tag "handheld", :media => "handheld" %>
@@ -45,7 +46,14 @@
     <%= javascript_include_tag "jquery.form.js" %>
     <%= javascript_include_tag "jquery.remotipart.js" %>
     <%= javascript_include_tag "display.js" %>
-  
+    <%= javascript_include_tag "shadowbox.js" %>
+    <script type="text/javascript">
+    Shadowbox.init({
+        // let's skip the automatic setup because we don't have any
+        // properly configured link elements on the page
+        skipSetup: true
+    });
+    </script>
 </head>
 <body>
 

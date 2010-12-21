@@ -15,11 +15,29 @@ function initFullMap() {
   }
 }
 
-function addMarker(lat, lng) {
+function addItem(item) {
+  addMarker(item.latitude, item.longitude, item);
+}
+
+function addMarker(lat, lng, item) {
   var latlng = new google.maps.LatLng(lat, lng);
   marker = new google.maps.Marker({
     map:map,
     position: latlng
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    revealItem(item);
+  });
+}
+
+function revealItem(item) {
+  console.log("reveal item: " + item);
+  var item = $("#item" + item.id);
+  Shadowbox.open({
+    content: item.html(),
+    player: 'html',
+    height: 1000,
+    width: 1000
   });
 }
 

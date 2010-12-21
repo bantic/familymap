@@ -5,3 +5,14 @@ html, body, #container, #main {
 #full_map {
   min-height: 100%;
 }
+
+.map_item {
+  width: 80%;
+  background-color: #CCC;
+  position: absolute;
+  left: 10%;
+  top: -80%;
+  z-index: 10;
+  height: 80%;
+  display: none;
+}

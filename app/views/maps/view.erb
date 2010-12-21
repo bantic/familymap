@@ -2,7 +2,13 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready( function() {
   <% @map.items.each do |item| %>
-    addMarker(<%= item.latitude %>, <%= item.longitude %>);
+    item = <%= item.to_json.html_safe %>;
+    addItem(<%= item.to_json.html_safe %>);
   <% end %>  
 });
 </script>
+<% @map.items.each do |item| %>
+  <div id="item<%= item.id %>" class="map_item">
+    <img src="<%= item.upload.image.url(:large) %>" />
+  </div>
+<% end %>
