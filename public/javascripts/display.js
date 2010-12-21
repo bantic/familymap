@@ -9,7 +9,7 @@ function initFullMap() {
     var myOptions = {
       zoom: 3,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.TERRAIN
     };
     map = new google.maps.Map(document.getElementById("full_map"), myOptions);
   }
