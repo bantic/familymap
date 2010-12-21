@@ -9,6 +9,11 @@ $(document).ready( function() {
 </script>
 <% @map.items.each do |item| %>
   <div id="item<%= item.id %>" class="map_item">
-    <img src="<%= item.upload.image.url(:large) %>" />
+    <div class="item_inner">
+      <img id="item<%= item.id %>image" src="<%= item.upload.image.url(:large) %>" />
+      <div class="item_description">
+        <%= item.description %>
+      </div>
+    </div>
   </div>
 <% end %>

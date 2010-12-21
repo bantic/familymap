@@ -20,6 +20,7 @@ function addItem(item) {
 }
 
 function addMarker(lat, lng, item) {
+  console.log("add marker, item.id: " + item.id);
   var latlng = new google.maps.LatLng(lat, lng);
   marker = new google.maps.Marker({
     map:map,
@@ -31,13 +32,24 @@ function addMarker(lat, lng, item) {
 }
 
 function revealItem(item) {
-  console.log("reveal item: " + item);
-  var item = $("#item" + item.id);
+  var item_div = $("#item" + item.id);
+  var image = item_div.find(".item_inner");
+  
+  var page_width = $(document).width();
+  var page_height = $(document).height();
+  var image_width   = image.width();
+  var image_height  = image.height();
+  
+  // console.log("page width: " + page_width + ", page height: " + page_height + ", image width: " + image_width + ", image height: " + image_height);
+  
+  var width = image_width + 20;
+  var height = image_height + 20;
+  
   Shadowbox.open({
-    content: item.html(),
+    content: item_div.html(),
     player: 'html',
-    height: 1000,
-    width: 1000
+    height: height,
+    width: width
   });
 }
 
