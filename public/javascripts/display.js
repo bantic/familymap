@@ -20,7 +20,6 @@ function addItem(item) {
 }
 
 function addMarker(lat, lng, item) {
-  console.log("add marker, item.id: " + item.id);
   var latlng = new google.maps.LatLng(lat, lng);
   marker = new google.maps.Marker({
     map:map,
