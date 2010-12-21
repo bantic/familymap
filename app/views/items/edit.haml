@@ -1,0 +1,12 @@
+- if @item.errors.present?
+  .notice
+    There was an error saving this item.
+
+= form_for [@map, @item] do |f|
+  = f.label :description
+  = f.text_area :description
+  %br
+  = f.submit "Save", :disable_with => "...saving..."
+
+
+= link_to "Back to map", map_url(@map)

@@ -1,11 +1,16 @@
+%ul
 - @map.items(true).each do |item|
-  item id:
-  = item.id
-  %b= item.title
-  %br
-  = item.description
-  %br
-  = item.latitude
-  ,
-  = item.longitude
-  %br
+  %li
+    item id:
+    = item.id
+    %b= item.title
+    %br
+    = item.description
+    %br
+    = item.latitude
+    ,
+    = item.longitude
+    %br
+    = link_to "Edit", edit_map_item_url(@map, item)
+    |
+    = link_to "Delete", map_item_url(@map, item), :confirm => "Are you sure?", :method => :delete
