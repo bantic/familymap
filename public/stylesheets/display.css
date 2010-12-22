@@ -21,7 +21,7 @@ html, body, #container, #main {
 
 #map_nav {
   width: 160px;
-  height: 72px;
+  height: 100px;
   position: absolute;
   left: 80px;
   top: 20px;

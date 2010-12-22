@@ -34,7 +34,7 @@ function nextItem() {
 function nextItemStep2(item) {
   map.setZoom(7);
   map.panTo( new google.maps.LatLng(item.latitude, item.longitude ) );
-  setTimeout( function() {revealItem(item)}, 1000);
+  setTimeout( function() {revealItem(item, true)}, 1000);
 }
 
 function addItem(item) {
@@ -53,7 +53,7 @@ function addMarker(lat, lng, item) {
   });
 }
 
-function revealItem(item) {
+function revealItem(item, auto_advance) {
   var item_div = $("#item" + item.id);
   var image = item_div.find(".item_inner");
   
@@ -75,5 +75,11 @@ function revealItem(item) {
     height: height,
     width: width
   });
+  
+  if (auto_advance) {
+    if ($("#auto_advance").attr("checked")) {
+      setTimeout( nextItem, 5000);
+    }
+  }
 }
 
