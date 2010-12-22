@@ -8,6 +8,11 @@ class MapsController < ApplicationController
     render "view", :layout => "display"
   end
   
+  def featured
+    @map = Map.find(4)
+    render "view", :layout => "display"
+  end
+  
   def show
     @map = Map.find(params[:id])
   end

@@ -2,6 +2,9 @@ Boilerplate::Application.routes.draw do |map|
   resources :maps do
     resources :items
     resources :uploads
+    collection do
+      get :featured
+    end
     member do
       get :view
     end
@@ -56,7 +59,7 @@ Boilerplate::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "maps#index"
+  root :to => "maps#featured"
 
   # See how all your routes lay out with "rake routes"
 
