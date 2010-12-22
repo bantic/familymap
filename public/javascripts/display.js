@@ -45,7 +45,8 @@ function addMarker(lat, lng, item) {
   var latlng = new google.maps.LatLng(lat, lng);
   marker = new google.maps.Marker({
     map:map,
-    position: latlng
+    position: latlng,
+    icon: "/images/pin.png"
   });
   google.maps.event.addListener(marker, 'click', function() {
     revealItem(item);
