@@ -1,9 +1,16 @@
+<div id='map_nav'>
+  Take the tour!
+  <a href='#' onclick='nextItem(); return false;'>Click here</a> to see the next item.
+  (You can also click the markers on the map directly.)
+</div>
 <div id='full_map'></div>
 <script type="text/javascript" charset="utf-8">
 $(document).ready( function() {
-  <% @map.items.each do |item| %>
-    addItem(<%= item.to_json.html_safe %>);
-  <% end %>  
+  map_items = <%= @map.items.to_json.html_safe %>;
+  next_item_id = Math.floor(Math.random()*map_items.length);
+  for (var i = 0; i < map_items.length; i++) {
+    addItem(map_items[i]);
+  }
 });
 </script>
 <% @map.items.each do |item| %>

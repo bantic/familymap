@@ -23,3 +23,15 @@ html, body, #container, #main {
   font-size: 14px;
   margin: 0 auto;
 }
+
+#map_nav {
+  width: 160px;
+  height: 72px;
+  position: absolute;
+  left: 80px;
+  top: 20px;
+  padding: 4px;
+  background-color: #FFF;
+  border: 1px solid black;
+  z-index: 100;
+}

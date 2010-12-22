@@ -9,10 +9,26 @@ function initFullMap() {
     var myOptions = {
       zoom: 3,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.TERRAIN
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      mapTypeControl: false,
+      streetViewControl: false
     };
     map = new google.maps.Map(document.getElementById("full_map"), myOptions);
   }
+}
+
+function nextItem() {
+  if (next_item_id >= map_items.length) {
+    next_item_id = 0;
+  }
+  var the_item = map_items[next_item_id];
+  next_item_id = next_item_id + 1;
+  
+  map.setZoom(7);
+  map.panTo( new google.maps.LatLng(the_item.latitude, the_item.longitude ) );
+  setTimeout( function() {revealItem(the_item)}, 1000);
+  
+  // console.log("the next item descr: " + the_item.description);
 }
 
 function addItem(item) {
@@ -41,8 +57,10 @@ function revealItem(item) {
   
   // console.log("page width: " + page_width + ", page height: " + page_height + ", image width: " + image_width + ", image height: " + image_height);
   
-  var width = image_width + 20;
-  var height = image_height + 20;
+  var width = page_width * 0.9;
+  var height = page_height * 0.9;
+  
+  // console.log("opeining with width: " + width + ", height: " + height);
   
   Shadowbox.open({
     content: item_div.html(),
