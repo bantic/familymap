@@ -11,6 +11,8 @@
     ,
     = item.longitude
     %br
+    = image_tag item.upload.image(:thumbnail)
+    %br
     = link_to "Edit", edit_map_item_url(@map, item)
     |
     = link_to "Delete", map_item_url(@map, item), :confirm => "Are you sure?", :method => :delete
