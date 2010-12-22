@@ -24,11 +24,17 @@ function nextItem() {
   var the_item = map_items[next_item_id];
   next_item_id = next_item_id + 1;
   
-  map.setZoom(7);
-  map.panTo( new google.maps.LatLng(the_item.latitude, the_item.longitude ) );
-  setTimeout( function() {revealItem(the_item)}, 1000);
+  if (Shadowbox.isOpen()) {
+    Shadowbox.close();
+  }
   
-  // console.log("the next item descr: " + the_item.description);
+  setTimeout( function() {nextItemStep2(the_item)}, 600);
+}
+
+function nextItemStep2(item) {
+  map.setZoom(7);
+  map.panTo( new google.maps.LatLng(item.latitude, item.longitude ) );
+  setTimeout( function() {revealItem(item)}, 1000);
 }
 
 function addItem(item) {
