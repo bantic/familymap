@@ -5,7 +5,7 @@ class Upload < ActiveRecord::Base
   has_one :item
   
   has_attached_file :image, 
-                    :styles         => { :medium => "300x300>", :thumb => "100x100>", :large => "1024x1024>", :display => "800x600>" },
+                    :styles         => { :medium => "300x300>", :thumb => "100x100>", :large => "1024x1024>", :display => "500x500>" },
                     :storage        => :s3,
                     :s3_credentials => {
                       :access_key_id     => S3[:key],
