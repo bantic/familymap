@@ -78,7 +78,7 @@ function revealItem(item, auto_advance) {
   
   if (auto_advance) {
     if ($("#auto_advance").attr("checked")) {
-      setTimeout( nextItem, 5000);
+      setTimeout( nextItem, 8000);
     }
   }
 }
