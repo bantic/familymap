@@ -9,7 +9,7 @@ class MapsController < ApplicationController
   end
   
   def featured
-    @map = Map.find(4)
+    @map = Map.find(5)
     render "view", :layout => "display"
   end
   
